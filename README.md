@@ -20,7 +20,7 @@
 ![콘솔 탭 스크린샷](https://cdn.discordapp.com/attachments/688667754009591917/688793495623958557/unknown.png)
 ### 2-2. 콘솔창에 아래의 코드를 복사 붙여넣기 한다 (CTRL C => CTRL V)
 ![복붙 스크린샷](https://cdn.discordapp.com/attachments/688667754009591917/688792148258455553/unknown.png)
-#### 복사 붙여넣기 할 코드
+#### 복사 붙여넣기 할 코드 (선택) - 1. 전체 강의 (모든 영상들)
 ```js
 function postToEBS (lctreSn) {
   const atnlcNo = $('#atnlcNo').val()
@@ -61,6 +61,35 @@ for (let i = lctreSn; i <= lctreSn + (steps - 1); i++) {
   console.log(`Sending Success Code to ${i}`)
   postToEBS(i)
 }
+```
+
+#### 복사 붙여넣기 할 코드 (선택) - 2. 현재 강의 (열려있는 영상)
+```js
+function postToEBS (lctreSn) {
+  const atnlcNo = $('#atnlcNo').val()
+  const lctreSeCode = $('#lctreSeCode').val()
+  const stepSn = $('#stepSn').val()
+  const cntntsTyCode = $('#cntntsTyCode').val()
+  const revivTime = $('#revivTime').val()
+
+  const postData = {}
+  postData.atnlcNo = atnlcNo
+  postData.lctreSn = lctreSn
+  postData.stepSn = stepSn
+  postData.lctreSeCode = lctreSeCode
+  postData.cntntsTyCode = cntntsTyCode
+  postData.revivTime = revivTime
+  postData.endButtonYn = 'Y'
+  postData.lastRevivLc = revivTime
+
+  postData.lrnTime = revivTime
+
+  fncPost('/mypage/userlrn/lctreLrnSave.do', postData, () => {
+    console.log('Success: ' + lctreSn)
+  })
+}
+
+postToEBS(Number($('#lctreSn').val()))
 ```
 ### 2-3. 엔터키를 누른후 오류가 난다면 Issue 에 오류 내용을 첨부해주고, 완료될때 까지 기다린다 (Success 글씨가 더이상 뜨지 않을 때 까지)
 ![콘솔스샷](https://cdn.discordapp.com/attachments/688667754009591917/688792449019412542/unknown.png)
