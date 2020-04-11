@@ -1,5 +1,6 @@
 # Fuck EBS Lecture
-## Script By Sangoon_Is_Noob#1683
+## Script By Sangoon_Is_Noob#1683, All Contributors
+## 이 스크립트를 사용하여 사용자에게 발생한 문제는 사용자에게 책임이 있음을 밝힙니다.
 ## 이 스크립트는 브라우저 콘솔 (개발자 도구) 에서 사용하는 스크립트입니다.
 
 ### 사용 전 스크린샷
